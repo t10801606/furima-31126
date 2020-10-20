@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_one :buyer
+- has_many :buyers
 
 ## items テーブル
 
@@ -34,7 +34,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :buyer
+- has_one :buyer
 - belongs_to_active_hash :charge
 - belongs_to_active_hash :area
 - belongs_to_active_hash :delivery_date
@@ -51,7 +51,7 @@
 ### Association
 
 - belongs_to :user
-- has_many :items
+- belongs_to :item
 - has_one :acceptance
 
 ## acceptancesテーブル
