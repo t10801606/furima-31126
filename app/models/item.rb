@@ -23,5 +23,5 @@ class Item < ApplicationRecord
   # belongs_to_active_hash :area
   # belongs_to_active_hash :delivery_date
   belongs_to_active_hash :category
-  # belongs_to_active_hash :status
+  belongs_to_active_hash :status
 end
