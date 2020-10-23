@@ -27,7 +27,7 @@
     <% if user_signed_in? %>
       <%# 出品者であれば下記処理を実行する %>
       <% if current_user.id == @item.user_id %>
-        <%= link_to '商品の編集', "#", method: :get, class: "item-red-btn" %>
+        <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
         <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
       <%# 出品者でないなら下記を表示する %>
