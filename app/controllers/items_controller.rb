@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :item_data, only: [:show, :edit, :update]
   def index
     @items = Item.includes(:user).order('created_at DESC')
-    @buyers = Buyer.all
+    @buyer = Buyer.pluck(:item_id)
   end
 
   def new
@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @buyer = Buyer.pluck(:item_id)
   end
 
   def edit
