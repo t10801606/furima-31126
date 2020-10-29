@@ -25,7 +25,7 @@ class BuyersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_13efc4eaab390518aead26c2"
+    Payjp.api_key = 'sk_test_13efc4eaab390518aead26c2'
     Payjp::Charge.create(
       amount: purchase_params[:price],
       card: purchase_params[:token],
@@ -35,6 +35,7 @@ class BuyersController < ApplicationController
 
   def move_to_index
     @item = Item.includes(:user).find(params[:item_id])
-    redirect_to root_path if current_user.id == @item.user_id
+    @buyer = Buyer.pluck(:item_id)
+    redirect_to root_path if current_user.id == @item.user_id || @buyer.include?(@item.id)
   end
 end
